@@ -11,8 +11,10 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: false
   },
-  output: 'standalone',
-  distDir: 'out',  // Changed to 'out' to match Next.js defaults
+  experimental: {
+    appDir: true
+  },
+  distDir: '.next',
   trailingSlash: true,
   async rewrites() {
     return [
