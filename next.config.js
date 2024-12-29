@@ -4,8 +4,9 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  output: 'export',  // Changed from 'standalone' to 'export' for static site generation
-  distDir: 'dist',   // Explicitly set the build output directory
+  output: 'export',
+  distDir: 'out',  // Changed to 'out' to match Next.js defaults
+  trailingSlash: true
 }
 
 module.exports = nextConfig
