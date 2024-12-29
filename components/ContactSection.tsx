@@ -30,14 +30,7 @@ export default function ContactSection() {
     <section id="contact" className="bg-[#0B1221] text-white py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16">
-          <ScrollingPoints 
-            points={[
-              "Fortify your IDENTITY ACCESS",
-              "Optimize your GOVERNANCE, RISK & COMPLIANCE",
-              "Streamline your ENTERPRISE ARCHITECTURE"
-            ]}
-            className="w-full"
-          />
+          <ScrollingPoints className="w-full" />
         </div>
 
         <div className="text-center">
