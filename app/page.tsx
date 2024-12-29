@@ -10,6 +10,12 @@ import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
 import FinalCTASection from '@/components/FinalCTASection'
 import { useEffect } from 'react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Thor Services - Transform IT Complexity into Results-Driven Simplicity',
+  description: 'Thor Services helps organizations take control of IT chaos, simplify operations, enhance security, and drive success through innovative IT solutions.',
+}
 
 export default function Home() {
   useEffect(() => {
@@ -18,7 +24,7 @@ export default function Home() {
   }, [])
 
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <Navigation />
       <HeroSection />
       <TransformSection />
@@ -28,6 +34,6 @@ export default function Home() {
       <FinalCTASection />
       <Footer />
       <BackToTop />
-    </>
+    </div>
   )
 }
