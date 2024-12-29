@@ -4,12 +4,13 @@ import { Metadata } from 'next'
 import { Providers } from '@/components/providers'
 import { siteMetadata } from './metadata'
 import { organizationSchema } from './schema'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  ...siteMetadata,
   metadataBase: new URL('https://thorservices.vercel.app'),
+  ...siteMetadata
 }
 
 export default function RootLayout({

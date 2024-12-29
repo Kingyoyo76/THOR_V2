@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 
-export const siteMetadata = {
+export const siteMetadata: Partial<Metadata> = {
   title: 'Thor Services - Transform IT Complexity into Results-Driven Simplicity',
   description: 'Thor Services delivers enterprise-grade Identity Access Management, IT Governance Solutions, and Security Services. Transform your IT complexity into streamlined operations with our expert consulting and implementation services.',
   keywords: [
@@ -35,7 +35,7 @@ export const siteMetadata = {
       index: true,
       follow: true,
       'max-video-preview': -1,
-      'max-image-preview': 'large',
+      'max-image-preview': 'large' as const,
       'max-snippet': -1,
     },
   },
