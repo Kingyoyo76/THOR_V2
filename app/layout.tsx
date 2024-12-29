@@ -4,10 +4,11 @@ import { Inter } from 'next/font/google'
 import { ModalProvider } from '@/components/providers/modal-provider'
 import ErrorBoundary from '@/components/ErrorBoundary'
 import { Toaster } from 'sonner'
+import { Metadata } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Thor Services - Transform IT Complexity into Results-Driven Simplicity',
   description: 'Thor Services helps organizations take control of IT chaos, simplify operations, enhance security, and drive success through innovative IT solutions.',
 }
