@@ -2,11 +2,20 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
+    domains: ['localhost', 'vercel.app']
   },
-  output: 'export',
+  output: 'server',
   distDir: 'out',  // Changed to 'out' to match Next.js defaults
-  trailingSlash: true
+  trailingSlash: true,
+  async rewrites() {
+    return [
+      {
+        source: '/:path*',
+        destination: '/:path*'
+      }
+    ]
+  }
 }
 
 module.exports = nextConfig

@@ -1,10 +1,9 @@
-import '@/styles/globals.css'
-import Script from 'next/script'
+import './globals.css'
 import { Inter } from 'next/font/google'
+import { Metadata } from 'next'
 import { ModalProvider } from '@/components/providers/modal-provider'
 import ErrorBoundary from '@/components/ErrorBoundary'
 import { Toaster } from 'sonner'
-import { Metadata } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,22 +18,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`scroll-smooth ${inter.className}`}>
-      <body className="min-h-screen bg-background font-sans antialiased">
+    <html lang="en">
+      <body className={inter.className}>
         <ErrorBoundary>
-          <main className="relative flex min-h-screen flex-col">
+          <ModalProvider>
             {children}
-          </main>
-          <ModalProvider />
-          <Toaster position="top-right" />
+            <Toaster />
+          </ModalProvider>
         </ErrorBoundary>
-        
-        {/* HubSpot Tracking Code */}
-        <Script
-          strategy="afterInteractive"
-          src="//js.hs-scripts.com/4864825.js"
-          id="hs-script-loader"
-        />
       </body>
     </html>
   )
