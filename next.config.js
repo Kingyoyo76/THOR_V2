@@ -5,7 +5,7 @@ const nextConfig = {
     unoptimized: true,
     domains: ['localhost', 'vercel.app']
   },
-  output: 'server',
+  output: 'standalone',
   distDir: 'out',  // Changed to 'out' to match Next.js defaults
   trailingSlash: true,
   async rewrites() {

@@ -1,4 +1,4 @@
-import './globals.css'
+import '@/styles/globals.css'
 import { Inter } from 'next/font/google'
 import { Metadata } from 'next'
 import { ModalProvider } from '@/components/providers/modal-provider'
@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-screen bg-background font-sans antialiased`}>
         <ErrorBoundary>
           <ModalProvider>
             {children}
