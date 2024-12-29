@@ -4,7 +4,6 @@ import { Inter } from 'next/font/google'
 import { ModalProvider } from '@/components/providers/modal-provider'
 import ErrorBoundary from '@/components/ErrorBoundary'
 import { Toaster } from 'sonner'
-import Navbar from '@/components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,7 +21,6 @@ export default function RootLayout({
     <html lang="en" className={`scroll-smooth ${inter.className}`}>
       <body className="min-h-screen bg-background font-sans antialiased">
         <ErrorBoundary>
-          <Navbar />
           <main className="relative flex min-h-screen flex-col">
             {children}
           </main>

@@ -18,24 +18,16 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="min-h-screen">
+    <>
       <Navigation />
       <HeroSection />
-      <div id="services">
-        <TransformSection />
-      </div>
-      <div id="expertise">
-        <ExpertiseSection />
-      </div>
-      <div id="technologies">
-        <StaffAugmentationSection />
-      </div>
+      <TransformSection />
+      <ExpertiseSection />
+      <StaffAugmentationSection />
       <TestimonialSection />
-      <div id="final-cta">
-        <FinalCTASection />
-      </div>
+      <FinalCTASection />
       <Footer />
       <BackToTop />
-    </main>
+    </>
   )
 }
