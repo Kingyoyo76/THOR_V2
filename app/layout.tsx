@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import { Metadata } from 'next'
 import { Providers } from '@/components/providers'
 import { siteMetadata } from './metadata'
-import { organizationSchema } from './schema'
+import { organizationSchema, faqSchema } from './schema'
 import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -24,6 +24,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </head>
       <body className={`${inter.className} min-h-screen bg-background font-sans antialiased`}>

@@ -7,34 +7,34 @@ const services = [
   {
     icon: Shield,
     title: 'Identity Access Management',
-    description: 'Secure your digital assets with robust identity and access management solutions.',
+    description: 'Secure your organization with zero-trust security that protects assets while maintaining operational efficiency.',
     benefits: [
-      'Zero Trust Architecture Implementation',
-      'Multi-Factor Authentication (MFA)',
-      'Privileged Access Management',
-      'Identity Lifecycle Management'
+      'Zero-Trust Architecture with continuous verification',
+      'Automated access governance and compliance',
+      'Privileged account security and auditing',
+      'Seamless user experience across platforms'
     ]
   },
   {
     icon: Users,
     title: 'Governance, Risk & Compliance',
-    description: 'Streamline your security operations with comprehensive GRC solutions.',
+    description: 'Transform your security from reactive to proactive with automated risk management and continuous monitoring.',
     benefits: [
-      'Security Policy Management',
-      'Risk Assessment & Mitigation',
-      'Compliance Monitoring & Reporting',
-      'Security Awareness Training'
+      'Real-time compliance monitoring and reporting',
+      'AI-powered threat detection and response',
+      '24/7 security operations and incident handling',
+      'Automated policy enforcement'
     ]
   },
   {
     icon: Zap,
     title: 'Enterprise Architecture',
-    description: 'Optimize your IT infrastructure with modern enterprise architecture solutions.',
+    description: 'Modernize your infrastructure and eliminate technical debt without disrupting operations.',
     benefits: [
-      'Cloud Migration Strategy',
-      'System Integration & Optimization',
-      'Technology Stack Modernization',
-      'Performance Monitoring & Analytics'
+      'Legacy system modernization with zero downtime',
+      'Cloud-native architecture implementation',
+      'Technical debt elimination strategy',
+      'Scalable and resilient system design'
     ]
   }
 ];

@@ -1,168 +1,74 @@
 import { Button } from '@/components/ui/button'
-import { Users, Clock, Puzzle, Building2, Shield, FileCheck, CheckCircle, BarChart, Lock, Cloud, Server, Network } from 'lucide-react'
+import { Building2, Shield, FileCheck } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const services = [
   {
-    id: "staffing",
-    icon: Users,
-    title: "IT Staff Augmentation",
-    subtitle: "Scale Your IT Capabilities On Demand",
-    businessChallenge: "Finding and onboarding the right IT talent can take months and cost thousands in lost opportunities.",
-    coreCapabilities: [
-      {
-        icon: Users,
-        title: "Instant Expertise Access",
-        description: "Pre-vetted specialists ready to join your team within days, not months."
-      },
-      {
-        icon: Clock,
-        title: "Flexible Team Scaling",
-        description: "Expand or reduce your team size as project demands change, without long-term commitments."
-      },
-      {
-        icon: Puzzle,
-        title: "Zero Onboarding Friction",
-        description: "Experienced professionals who understand your tech stack and can contribute from day one."
-      }
-    ],
-    businessOutcomes: [
-      {
-        value: "50% ↓",
-        label: "Faster Time-to-Value",
-        detail: "Start delivering results in days instead of months"
-      },
-      {
-        value: "40% ↑",
-        label: "Project Acceleration",
-        detail: "Complete critical initiatives ahead of schedule"
-      },
-      {
-        value: "30%",
-        label: "Cost Optimization",
-        detail: "Reduce hiring and training overhead"
-      }
-    ]
-  },
-  {
     id: "enterprise",
-    icon: Building2,
-    title: "Enterprise Architecture (EA)",
-    subtitle: "Transform Complexity into Business Value",
-    businessChallenge: "Legacy systems and technical debt are slowing your digital transformation and driving up costs.",
-    coreCapabilities: [
+    title: "Enterprise Architecture",
+    challenge: "Managing complex legacy systems while trying to modernize your infrastructure?",
+    solution: "We help enterprises transition from rigid legacy systems to flexible, cloud-ready architecture without disrupting operations.",
+    capabilities: [
       {
-        icon: Server,
+        icon: Building2,
         title: "Infrastructure Modernization",
-        description: "Replace outdated systems with scalable, cost-effective solutions that drive growth."
+        description: "Migrate legacy systems to modern cloud platforms with zero downtime"
       },
       {
-        icon: Network,
-        title: "Seamless Integration",
-        description: "Connect disparate systems into a unified, efficient technology ecosystem."
+        icon: Building2,
+        title: "Technical Debt Resolution",
+        description: "Systematic approach to eliminate technical debt while maintaining business continuity"
       },
       {
-        icon: Cloud,
-        title: "Cloud-First Architecture",
-        description: "Leverage cloud capabilities to reduce costs and increase business agility."
-      }
-    ],
-    businessOutcomes: [
-      {
-        value: "30%",
-        label: "Cost Reduction",
-        detail: "Lower infrastructure and maintenance costs"
-      },
-      {
-        value: "40%",
-        label: "Faster Delivery",
-        detail: "Accelerate new feature and product launches"
-      },
-      {
-        value: "60%",
-        label: "Increased Efficiency",
-        detail: "Automate manual processes and reduce redundancies"
+        icon: Building2,
+        title: "Cloud-Native Architecture",
+        description: "Design scalable, resilient systems that leverage cloud capabilities"
       }
     ]
   },
   {
     id: "identity",
-    icon: Shield,
-    title: "Identity & Access Management (IAM)",
-    subtitle: "Secure Access Without Business Friction",
-    businessChallenge: "Complex access management creates security risks and slows down your business operations.",
-    coreCapabilities: [
+    title: "Identity & Access Management",
+    challenge: "Struggling with secure access management across cloud and on-premise systems?",
+    solution: "We implement zero-trust security frameworks that protect your assets while maintaining operational efficiency.",
+    capabilities: [
       {
-        icon: Lock,
-        title: "Automated Access Control",
-        description: "Right-sized access provisioning that keeps your business moving securely."
+        icon: Shield,
+        title: "Zero-Trust Implementation",
+        description: "Secure access control based on continuous verification, not location"
       },
       {
         icon: Shield,
-        title: "Zero-Trust Security",
-        description: "Protect sensitive data while maintaining seamless user experience."
+        title: "Identity Governance",
+        description: "Automated access reviews and compliance reporting"
       },
       {
-        icon: BarChart,
-        title: "Intelligent Risk Prevention",
-        description: "Stop threats before they impact your business operations."
-      }
-    ],
-    businessOutcomes: [
-      {
-        value: "70%",
-        label: "Risk Reduction",
-        detail: "Fewer security incidents and data breaches"
-      },
-      {
-        value: "90%",
-        label: "Faster Access",
-        detail: "Streamlined user provisioning and deprovisioning"
-      },
-      {
-        value: "100%",
-        label: "Compliance",
-        detail: "Automatic regulatory requirement adherence"
+        icon: Shield,
+        title: "Privileged Access Management",
+        description: "Secure and audit privileged account usage across your enterprise"
       }
     ]
   },
   {
     id: "cyber",
-    icon: FileCheck,
-    title: "Cyber Risk & Compliance (CRC)",
-    subtitle: "Turn Compliance into Competitive Advantage",
-    businessChallenge: "Manual compliance processes drain resources and leave you vulnerable to risks and penalties.",
-    coreCapabilities: [
+    title: "Cyber Risk & Compliance",
+    challenge: "Finding it difficult to stay ahead of evolving cyber threats and compliance requirements?",
+    solution: "We transform your security posture from reactive to proactive with automated risk management and continuous compliance monitoring.",
+    capabilities: [
       {
         icon: FileCheck,
-        title: "Automated Compliance",
-        description: "Transform manual checkboxes into automated, continuous compliance."
+        title: "Continuous Compliance",
+        description: "Real-time compliance monitoring across your entire infrastructure"
       },
       {
-        icon: Shield,
-        title: "Proactive Risk Management",
-        description: "Identify and mitigate risks before they impact your business."
+        icon: FileCheck,
+        title: "Automated Risk Management",
+        description: "AI-powered threat detection and response"
       },
       {
-        icon: BarChart,
-        title: "Real-Time Risk Intelligence",
-        description: "Make informed decisions with continuous security monitoring."
-      }
-    ],
-    businessOutcomes: [
-      {
-        value: "50%",
-        label: "Cost Savings",
-        detail: "Reduced audit and compliance overhead"
-      },
-      {
-        value: "99.9%",
-        label: "Risk Coverage",
-        detail: "Comprehensive threat detection and response"
-      },
-      {
-        value: "24/7",
-        label: "Compliance Status",
-        detail: "Always audit-ready operations"
+        icon: FileCheck,
+        title: "Security Operations",
+        description: "24/7 monitoring and incident response"
       }
     ]
   }
@@ -170,63 +76,72 @@ const services = [
 
 export default function ServiceSection() {
   return (
-    <section className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-24">
-          {services.map((service) => (
-            <div key={service.id} className="bg-white rounded-lg shadow-xl overflow-hidden">
-              <div className="p-8">
-                <div className="flex flex-col items-center md:flex-row md:items-start gap-4 mb-6">
-                  <div className="bg-orange-50 p-4 rounded-lg">
-                    <service.icon className="w-8 h-8 text-[#FF5722]" />
-                  </div>
-                  <div className="text-center">
-                    <h2 className="text-3xl font-bold mb-2 text-center">{service.title}</h2>
-                    <p className="text-xl text-gray-600 text-center">{service.subtitle}</p>
-                  </div>
-                </div>
-                
-                <p className="text-lg text-gray-700 mb-12 text-center mx-auto max-w-3xl text-justify">{service.businessChallenge}</p>
-                
-                <div className="grid md:grid-cols-3 gap-8 mb-12">
-                  {service.coreCapabilities.map((capability, index) => (
-                    <div key={index} className="space-y-4 flex flex-col items-center">
-                      <div className="bg-orange-50 p-3 rounded-lg">
-                        <capability.icon className="w-6 h-6 text-[#FF5722]" />
-                      </div>
-                      <h3 className="font-semibold text-lg text-center">{capability.title}</h3>
-                      <p className="text-gray-600 text-center text-justify">{capability.description}</p>
-                    </div>
-                  ))}
-                </div>
+    <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-white">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
+          <motion.h1 
+            className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Enterprise Solutions
+          </motion.h1>
+          <motion.p 
+            className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400 text-center px-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            Addressing critical challenges in enterprise architecture, security, and compliance
+          </motion.p>
+        </div>
+        <div className="grid gap-20">
+          {services.map((service, serviceIndex) => (
+            <motion.div
+              key={service.id}
+              className="max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: serviceIndex * 0.1 }}
+            >
+              <div className="text-left mb-8">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
+                  {service.title}
+                </h2>
+                <p className="text-xl text-[#FF4B11] font-semibold mb-3">
+                  {service.challenge}
+                </p>
+                <p className="text-gray-600 text-lg">
+                  {service.solution}
+                </p>
               </div>
-
-              <div className="bg-gray-50 p-8">
-                <h3 className="text-2xl font-bold mb-8 text-center">Business Impact</h3>
-                <div className="grid grid-cols-3 gap-8">
-                  {service.businessOutcomes.map((outcome, index) => (
-                    <div key={index} className="text-center">
-                      <div className="text-4xl font-bold text-[#FF5722] mb-2">{outcome.value}</div>
-                      <div className="font-semibold mb-2">{outcome.label}</div>
-                      <div className="text-sm text-gray-600 text-justify">{outcome.detail}</div>
+              <div className="grid md:grid-cols-3 gap-6 mt-8">
+                {service.capabilities.map((capability, index) => (
+                  <div 
+                    key={index} 
+                    className="flex flex-col p-6 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
+                  >
+                    <div className="p-3 bg-[#FF4B11]/10 rounded-full mb-4 self-start">
+                      <capability.icon className="w-6 h-6 text-[#FF4B11]" />
                     </div>
-                  ))}
-                </div>
+                    <h3 className="text-lg font-semibold mb-2">{capability.title}</h3>
+                    <p className="text-gray-600">{capability.description}</p>
+                  </div>
+                ))}
               </div>
-
-              <div className="p-8 text-center">
-                <Button 
-                  size="lg" 
-                  className="bg-[#FF5722] hover:bg-[#E64A19] text-white"
-                >
-                  Learn How We Can Help Your Business
+              <div className="mt-8">
+                <Button className="bg-[#FF4B11] text-white hover:bg-[#FF4B11]/90 transition-colors">
+                  Learn More About {service.title}
                 </Button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   )
 }
-

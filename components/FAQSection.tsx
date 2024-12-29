@@ -53,6 +53,7 @@ export default function FAQSection() {
             Get answers to common questions about our services and solutions
           </p>
         </div>
+
         <div className="mx-auto max-w-4xl mt-8 space-y-4">
           {faqs.map((faq, index) => (
             <motion.div
@@ -66,7 +67,7 @@ export default function FAQSection() {
               >
                 <span className="font-medium">{faq.question}</span>
                 <ChevronDown
-                  className={`h-5 w-5 transform transition-transform duration-200 ${
+                  className={`h-5 w-5 text-gray-500 transition-transform ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                 />
@@ -82,8 +83,8 @@ export default function FAQSection() {
                   height: openIndex === index ? 'auto' : 0
                 }}
               >
-                <div className="px-4 pb-4 text-gray-600">
-                  {faq.answer}
+                <div className="p-4 pt-0">
+                  <p className="text-gray-600">{faq.answer}</p>
                 </div>
               </motion.div>
             </motion.div>
