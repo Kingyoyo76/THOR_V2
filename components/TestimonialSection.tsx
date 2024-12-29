@@ -117,20 +117,6 @@ export default function TestimonialSection() {
               </div>
             </motion.div>
           </AnimatePresence>
-          <button 
-            onClick={prevTestimonial} 
-            className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
-            aria-label="Previous testimonial"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button 
-            onClick={nextTestimonial} 
-            className="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
-            aria-label="Next testimonial"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
         </div>
 
         {/* Client Logos Section */}

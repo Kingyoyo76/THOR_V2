@@ -1,28 +1,37 @@
 "use client";
 
-import { useCallback } from 'react'
+import { useCallback } from 'react';
 
-const NavigationMenu = () => {
+interface NavigationMenuProps {
+  onItemClick?: () => void;
+}
+
+const NavigationMenu = ({ onItemClick }: NavigationMenuProps) => {
   const scrollToSection = useCallback((sectionId: string) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 80
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - offset
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
 
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
-      })
+      });
+      
+      // Call the onItemClick callback if provided
+      if (onItemClick) {
+        onItemClick();
+      }
     }
-  }, [])
+  }, [onItemClick]);
 
   const menuItems = [
     { id: 'services', label: 'Services' },
     { id: 'expertise', label: 'Expertise' },
     { id: 'technologies', label: 'Technologies' },
     { id: 'final-cta', label: 'Contact' }
-  ]
+  ];
 
   return (
     <div className="flex flex-col md:flex-row md:items-center md:space-x-8">
@@ -38,7 +47,7 @@ const NavigationMenu = () => {
         </button>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default NavigationMenu
+export default NavigationMenu;

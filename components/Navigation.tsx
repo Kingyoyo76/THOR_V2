@@ -1,32 +1,32 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import NavigationMenu from './NavigationMenu'
-import Image from 'next/image'
+import { useState } from 'react';
+import Link from 'next/link';
+import { Menu, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import NavigationMenu from './NavigationMenu';
+import Image from 'next/image';
 
 export default function Navigation() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-    document.body.style.overflow = !isMobileMenuOpen ? 'hidden' : 'auto'
-  }
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    document.body.style.overflow = !isMobileMenuOpen ? 'hidden' : 'auto';
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0B1221] shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src="/logos/thor-logo.png"
               alt="Thor Services Logo"
-              width={120}
-              height={40}
-              className="h-8 w-auto"
+              width={240}
+              height={80}
+              className="h-16 w-auto"
               priority
             />
           </Link>
@@ -51,12 +51,12 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-16 bg-[#0B1221]/95 backdrop-blur-sm z-50">
+        <div className="md:hidden fixed inset-0 top-20 bg-[#0B1221]/95 backdrop-blur-sm z-50">
           <div className="px-4 py-6 space-y-6">
-            <NavigationMenu />
+            <NavigationMenu onItemClick={() => setIsMobileMenuOpen(false)} />
           </div>
         </div>
       )}
     </nav>
-  )
+  );
 }

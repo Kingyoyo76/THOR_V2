@@ -71,9 +71,9 @@ export default function TransformSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6">Transform Your Security Posture</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-6">Strengthen Your Security, Together</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Elevate your cybersecurity strategy with our comprehensive solutions. We help organizations build resilient security frameworks that protect assets, ensure compliance, and enable growth.
+            We don't replace your IT team—we amplify it. As a trusted extension of your organization, we bring specialized expertise, proven solutions, and a collaborative approach to enhance your existing strengths. Together, we tackle challenges, optimize operations, and build resilient systems that protect your assets, ensure compliance, and enable your growth.
           </p>
         </motion.div>
 
