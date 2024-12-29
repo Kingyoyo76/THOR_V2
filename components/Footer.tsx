@@ -5,139 +5,114 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { toast, Toaster } from 'sonner'
 import { Linkedin, Twitter } from 'lucide-react'
+import { useRouter, usePathname } from 'next/navigation'
 
 export default function Footer() {
+  const router = useRouter();
+  const pathname = usePathname();
+
   const handleComingSoon = (item: string) => {
     toast(`${item} Coming Soon!`, {
       description: "We're working on something exciting! Check back soon for updates.",
     })
   }
 
-  const scrollToExpertise = (tab: string) => {
-    const element = document.getElementById('expertise')
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      // Allow time for the scroll to complete before changing the tab
-      setTimeout(() => {
-        const tabButton = document.querySelector(`[data-tab="${tab}"]`) as HTMLButtonElement
-        if (tabButton) {
-          tabButton.click()
-        }
-      }, 1000)
+  const handleSectionClick = (sectionId: string) => {
+    if (pathname === '/') {
+      // If we're already on the home page, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const offset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // If we're on another page, navigate home with the hash
+      router.push(`/#${sectionId}`);
     }
   }
 
   return (
     <footer className="bg-[#0B1221] text-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-base sm:text-lg font-semibold mb-4">Thor IT Services</h3>
-            <p className="text-sm text-gray-400">Empowering enterprises with comprehensive cybersecurity solutions.</p>
-          </div>
-          <div>
-            <h3 className="text-base sm:text-lg font-semibold mb-4">Our Services</h3>
-            <ul className="space-y-2">
-              <li>
-                <button 
-                  onClick={() => scrollToExpertise('ea')} 
-                  className="text-xs sm:text-sm text-gray-400 hover:text-white"
-                >
-                  Enterprise Architecture (EA)
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => scrollToExpertise('iam')} 
-                  className="text-xs sm:text-sm text-gray-400 hover:text-white"
-                >
-                  Identity and Access Management (IAM)
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => scrollToExpertise('grc')} 
-                  className="text-xs sm:text-sm text-gray-400 hover:text-white"
-                >
-                  Cyber Risk and Compliance (CRC)
-                </button>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-base sm:text-lg font-semibold mb-4">Resources</h3>
-            <ul className="space-y-2">
-              <li>
-                <button 
-                  onClick={() => handleComingSoon('Case Studies')} 
-                  className="text-xs sm:text-sm text-gray-400 hover:text-white"
-                >
-                  Case Studies
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => handleComingSoon('Whitepapers')} 
-                  className="text-xs sm:text-sm text-gray-400 hover:text-white"
-                >
-                  Whitepapers
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => handleComingSoon('Blog')} 
-                  className="text-xs sm:text-sm text-gray-400 hover:text-white"
-                >
-                  Blog
-                </button>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-base sm:text-lg font-semibold mb-4 flex items-center">
-              Follow Us
-              <svg
-                viewBox="0 0 24 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-8 ml-2 text-[#FF5722]"
-              >
-                <path
-                  d="M6 8h12v4H6z M11 12v16 M11 16h2v2h-2z M11 20h2v2h-2z M11 24h2v2h-2z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </h3>
-            <div className="flex space-x-4">
-              <a href="https://www.linkedin.com/company/thor-group" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
-                <Linkedin className="w-6 h-6" />
-                <span className="sr-only">LinkedIn</span>
-              </a>
-              <a href="https://twitter.com/thor_group" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
-                <Twitter className="w-6 h-6" />
-                <span className="sr-only">X (Twitter)</span>
-              </a>
-            </div>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <h3 className="text-lg font-semibold mb-4">About Us</h3>
+          <p className="text-gray-400 text-sm">
+            Thor Services transforms IT complexity into results-driven simplicity, helping organizations take control of their digital future.
+          </p>
+        </div>
+        <div>
+          <h3 className="text-lg font-semibold mb-4">Services</h3>
+          <ul className="space-y-2">
+            <li>
+              <button onClick={() => handleSectionClick('expertise')} className="text-gray-400 hover:text-white text-sm">
+                Identity Access Management
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleSectionClick('expertise')} className="text-gray-400 hover:text-white text-sm">
+                IT Governance
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleSectionClick('expertise')} className="text-gray-400 hover:text-white text-sm">
+                Security Services
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/faq" className="text-gray-400 hover:text-white text-sm">
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <button onClick={() => handleComingSoon('Privacy Policy')} className="text-gray-400 hover:text-white text-sm">
+                Privacy Policy
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleComingSoon('Terms of Service')} className="text-gray-400 hover:text-white text-sm">
+                Terms of Service
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
+          <div className="flex space-x-4">
+            <button onClick={() => handleComingSoon('LinkedIn')} className="text-gray-400 hover:text-white">
+              <Linkedin className="h-6 w-6" />
+            </button>
+            <button onClick={() => handleComingSoon('Twitter')} className="text-gray-400 hover:text-white">
+              <Twitter className="h-6 w-6" />
+            </button>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-          <p className="text-sm text-gray-400">&copy; {new Date().getFullYear()} Thor IT Services. All rights reserved.</p>
-        </div>
-        <Toaster 
-          theme="dark"
-          position="top-center"
-          toastOptions={{
-            style: { 
-              background: '#0B1221',
-              border: '1px solid #FF3D00',
-              color: 'white',
-            }
-          }}
-        />
       </div>
+      <div className="mt-8 pt-8 border-t border-gray-800">
+        <p className="text-center text-gray-400 text-sm">
+          {new Date().getFullYear()} Thor Services. All rights reserved.
+        </p>
+      </div>
+      <Toaster 
+        theme="dark"
+        position="top-center"
+        toastOptions={{
+          style: { 
+            background: '#0B1221',
+            border: '1px solid #FF3D00',
+            color: 'white',
+          }
+        }}
+      />
     </footer>
   )
 }

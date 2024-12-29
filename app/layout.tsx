@@ -2,13 +2,14 @@ import '@/styles/globals.css'
 import { Inter } from 'next/font/google'
 import { Metadata } from 'next'
 import { Providers } from '@/components/providers'
-import { Toaster } from 'sonner'
+import { siteMetadata } from './metadata'
+import { organizationSchema } from './schema'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Thor Services - Transform IT Complexity into Results-Driven Simplicity',
-  description: 'Thor Services helps organizations take control of IT chaos, simplify operations, enhance security, and drive success through innovative IT solutions.',
+  ...siteMetadata,
+  metadataBase: new URL('https://thorservices.vercel.app'),
 }
 
 export default function RootLayout({
@@ -18,11 +19,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body className={`${inter.className} min-h-screen bg-background font-sans antialiased`}>
         <Providers>
           <main className="relative flex min-h-screen flex-col">
             {children}
-            <Toaster />
           </main>
         </Providers>
       </body>

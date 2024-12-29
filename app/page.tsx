@@ -20,12 +20,14 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
       <Navigation />
-      <HeroSection />
-      <TransformSection />
-      <ExpertiseSection />
-      <StaffAugmentationSection />
-      <TestimonialSection />
-      <FinalCTASection />
+      <main>
+        <HeroSection />
+        <TransformSection />
+        <ExpertiseSection />
+        <StaffAugmentationSection />
+        <TestimonialSection />
+        <FinalCTASection />
+      </main>
       <Footer />
       <BackToTop />
     </div>

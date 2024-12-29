@@ -1,30 +1,60 @@
 "use client";
 
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 
 interface NavigationMenuProps {
   onItemClick?: () => void;
 }
 
 const NavigationMenu = ({ onItemClick }: NavigationMenuProps) => {
-  const scrollToSection = useCallback((sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+  const router = useRouter();
+  const pathname = usePathname();
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-      
-      // Call the onItemClick callback if provided
-      if (onItemClick) {
-        onItemClick();
+  // Handle scroll to section after navigation
+  useEffect(() => {
+    // Get the hash from the URL
+    const hash = window.location.hash;
+    if (hash && pathname === '/') {
+      // Remove the # from the hash
+      const sectionId = hash.replace('#', '');
+      const element = document.getElementById(sectionId);
+      if (element) {
+        setTimeout(() => {
+          const offset = 80; // Adjust this value based on your header height
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }, 100); // Small delay to ensure the page has loaded
       }
     }
-  }, [onItemClick]);
+  }, [pathname]);
+
+  const scrollToSection = useCallback((sectionId: string) => {
+    if (pathname === '/') {
+      // If we're already on the home page, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const offset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // If we're on another page, navigate home with the hash
+      router.push(`/#${sectionId}`);
+    }
+    
+    if (onItemClick) {
+      onItemClick();
+    }
+  }, [onItemClick, router, pathname]);
 
   const menuItems = [
     { id: 'services', label: 'Services' },
