@@ -2,8 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: true,
-    domains: ['localhost', 'vercel.app']
+    domains: ['localhost', 'vercel.app'],
+    unoptimized: true
+  },
+  typescript: {
+    ignoreBuildErrors: false
+  },
+  eslint: {
+    ignoreDuringBuilds: false
   },
   output: 'standalone',
   distDir: 'out',  // Changed to 'out' to match Next.js defaults

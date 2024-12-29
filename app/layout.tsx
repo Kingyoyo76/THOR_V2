@@ -1,8 +1,7 @@
 import '@/styles/globals.css'
 import { Inter } from 'next/font/google'
 import { Metadata } from 'next'
-import { ModalProvider } from '@/components/providers/modal-provider'
-import ErrorBoundary from '@/components/ErrorBoundary'
+import { Providers } from '@/components/providers'
 import { Toaster } from 'sonner'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -18,14 +17,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} min-h-screen bg-background font-sans antialiased`}>
-        <ErrorBoundary>
-          <ModalProvider>
+        <Providers>
+          <main className="relative flex min-h-screen flex-col">
             {children}
             <Toaster />
-          </ModalProvider>
-        </ErrorBoundary>
+          </main>
+        </Providers>
       </body>
     </html>
   )

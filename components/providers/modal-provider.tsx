@@ -6,7 +6,11 @@ import MeetingModal from '@/components/MeetingModal';
 import { useContactModal } from '@/hooks/use-contact-modal';
 import { useMeetingModal } from '@/hooks/use-meeting-modal';
 
-export const ModalProvider = () => {
+interface ModalProviderProps {
+  children: React.ReactNode;
+}
+
+export const ModalProvider = ({ children }: ModalProviderProps) => {
   const [isMounted, setIsMounted] = useState(false);
   const contactModal = useContactModal();
   const meetingModal = useMeetingModal();
@@ -21,6 +25,7 @@ export const ModalProvider = () => {
 
   return (
     <>
+      {children}
       {contactModal.isOpen && (
         <ContactFormModal 
           isOpen={contactModal.isOpen} 
